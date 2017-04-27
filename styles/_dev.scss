@@ -1,0 +1,55 @@
+
+@mixin xhdpi {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+.lines {
+    background:transparent url('../images/lines.png') left top repeat;
+}
+
+@include xhdpi {
+    .lines {
+        background: transparent url('../images/lines@2x.png') left top repeat;
+        background-size: 16px 16px;
+    }
+}
+
+p {
+    background:transparent url('../images/lines-text.png') left top repeat;
+}
+
+@include xhdpi {
+    p {
+        background: transparent url('../images/lines-text@2x.png') left top repeat;
+        background-size: 16px 16px;
+    }
+}
+
+
+.container {
+    //background-color: rgba(255, 0, 255, 0.1);
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+/* Materialize additions */
+
+form {
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+        background-color: rgb(0, 255, 255) !important;
+        -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    }
+}
